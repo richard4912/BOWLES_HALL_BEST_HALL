@@ -265,7 +265,7 @@ def check_strategy(strategy, goal=GOAL_SCORE):
 
 # Experiments
 
-def make_averaged(fn, num_samples=1000):
+def make_averaged(fn, num_samples=10000):
     """Return a function that returns the average_value of FN when called.
 
     To implement this function, you will have to use *args syntax, a new Python
@@ -330,8 +330,6 @@ def average_win_rate(strategy, baseline=always_roll(4)):
 def run_experiments():
     if False:
         print('my strategy WR:', average_win_rate(final_strategy))
-
-print('my strategy WR:', average_win_rate(final_strategy))
 
 # Strategies
 
