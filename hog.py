@@ -1,10 +1,5 @@
 from hog_contest import final_strategy
 
-check_strategy(final_strategy)
-print('my strategy WR:', average_win_rate(final_strategy))
-
-
-
 """CS 61A Presents The Game of Hog."""
 
 from dice import four_sided, six_sided, make_test_dice
@@ -395,3 +390,7 @@ def run(*args):
 
     if args.run_experiments:
         run_experiments()
+
+
+check_strategy(final_strategy)
+print('my strategy WR:', average_win_rate(final_strategy))
