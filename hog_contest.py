@@ -10,5 +10,22 @@ as well.
 
 TEAM_NAME = 'BOWLES_HALL_BEST_HALL' # Change this line!
 
+def max_scoring_dice(score, opponent_score):
+	for n in range(0,11)
+
+def probablity_of_winning_with_n(score, opponent_score, n):
+
+
+def 
+
+def memo(f):
+    cache = {}
+    def memoized(*args):
+        if args not in cache:
+            cache[args] = f(*args)
+        return cache[args]
+    return memoized
+
+@memo
 def final_strategy(score, opponent_score):
     return 5
