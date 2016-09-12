@@ -1,3 +1,9 @@
+import final_strategy from hog_contest
+check_strategy(final_strategy)
+print('my strategy WR:', average_win_rate(final_strategy))
+
+
+
 """CS 61A Presents The Game of Hog."""
 
 from dice import four_sided, six_sided, make_test_dice
@@ -326,31 +332,10 @@ def average_win_rate(strategy, baseline=always_roll(4)):
 
 
 def run_experiments():
-    """Run a series of strategy experiments and report results."""
-    if False:  # Change to False when done finding max_scoring_num_rolls
-        six_sided_max = max_scoring_num_rolls(six_sided)
-        print('Max scoring num rolls for six-sided dice:', six_sided_max)
-        rerolled_max = max_scoring_num_rolls(reroll(six_sided))
-        print('Max scoring num rolls for re-rolled dice:', rerolled_max)
-
-    if False:  # Change to False when done finding max_scoring_num_rolls
-        four_sided_max = max_scoring_num_rolls(four_sided)
-        print('Max scoring num rolls for four-sided dice:', four_sided_max)
-        #rerolled_max = max_scoring_num_rolls(reroll(four_sided))
-        #print('Max scoring num rolls for re-rolled dice:', rerolled_max)
-
-    if False:  # Change to True to test always_roll(8)
-        print('always_roll(8) win rate:', average_win_rate(always_roll(8)))
-
-    if False:  # Change to True to test bacon_strategy
-        print('bacon_strategy win rate:', average_win_rate(bacon_strategy))
-
-    if False:  # Change to True to test swap_strategy
-        print('swap_strategy win rate:', average_win_rate(swap_strategy))
-
-    if True:
+    if False:
         print('my strategy WR:', average_win_rate(final_strategy))
 
+print('my strategy WR:', average_win_rate(final_strategy))
 
 # Strategies
 
@@ -386,45 +371,6 @@ def swap_strategy(score, opponent_score, margin=8, num_rolls=4):
         return num_rolls 
     # END PROBLEM 10
 check_strategy(swap_strategy)
-
-
-def final_strategy(score, opponent_score):
-    """Switch the dice to the four sided dice on the first turn from the pork chop rule.
-    Then, calculate what would happen to your score if you were to roll 0 dice.
-
-    Now, based on how many points you score, decide if you want to 
-    1) roll 0 score because you get enough points from free bacon, and from a potential swine swap / hogtimus prime
-    2) roll 5 dice as a baseline
-    3) roll 4 dice to reduce variance when you are about to win
-    4) roll 8 dice to take advantage of a potential hog wild re-roll dice
-
-    """
-    # BEGIN PROBLEM 11
-    if score == 0:
-        return -1
-
-    points = free_bacon(opponent_score)
-    if is_prime(points):
-        points = next_prime(points)
-    zero_score = score + points
-
-    if zero_score == 2*opponent_score and points >= 15:
-        return 0
-    elif zero_score == 2*opponent_score and points >= 10 and zero_score + opponent_score % 7 != 0:
-        return 0
-    elif points >= 9:
-        return 0
-    elif score + opponent_score % 7 == 0:
-        return 8
-    elif points >= 5 and zero_score + opponent_score % 7 != 0:
-        return 0
-    else:
-        if score > 90:
-            return 4
-        return 5
-    # END PROBLEM 11
-check_strategy(final_strategy)
-
 
 ##########################
 # Command Line Interface #
