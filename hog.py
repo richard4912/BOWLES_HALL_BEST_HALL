@@ -1,4 +1,5 @@
-import final_strategy from hog_contest
+from hog_contest import final_strategy
+
 check_strategy(final_strategy)
 print('my strategy WR:', average_win_rate(final_strategy))
 
