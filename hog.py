@@ -1,3 +1,5 @@
+
+import time
 from hog_contest import final_strategy
 
 """CS 61A Presents The Game of Hog."""
@@ -389,6 +391,15 @@ def run(*args):
     if args.run_experiments:
         run_experiments()
 
-
+start = time.time()
 check_strategy(final_strategy)
-print('my strategy WR:', average_win_rate(final_strategy))
+#print('my strategy WR:', average_win_rate(final_strategy))
+print("check strat time is:", time.time()-start,"secs")
+
+#print('my strategy WR:', average_win_rate(final_strategy))
+#should we ask denero how fast the computer is thats running the contest?
+#xeon 22 core =D
+#I'll ask privately on piazza like I did with the starting order OKIE
+
+# we dont have to fit into the 10 sec time constraint
+# just have 10000 lines that we printed out somewhere else using a lot of time
